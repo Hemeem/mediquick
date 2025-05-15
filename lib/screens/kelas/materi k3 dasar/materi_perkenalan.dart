@@ -126,7 +126,7 @@ class MateriPerkenalanScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 4.0),
                               child: Image.asset(
                                 'assets/images/maskot.jpg',
-                                height: 297,
+                                height: 280,
                               ),
                             ),
                             const SizedBox(width: 10),

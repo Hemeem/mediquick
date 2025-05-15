@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../kelas_screen.dart';
+
 class SertifikatScreen extends StatelessWidget {
   const SertifikatScreen({super.key});
 
@@ -11,7 +13,13 @@ class SertifikatScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Logo MEDIQUICK dan background gelombang
+              Container(
+                width: double.infinity,
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 24),
+                child: Image.asset('assets/images/logo.png', height: 110),
+              ),
+
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(
@@ -22,8 +30,6 @@ class SertifikatScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/logo.png', height: 100),
-                    const SizedBox(height: 24),
                     const Text(
                       'Lorem Ipsum, Anda mendapat sertifikat!',
                       textAlign: TextAlign.center,
@@ -63,11 +69,34 @@ class SertifikatScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const KelasScreen(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF6E8FB8),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                          horizontal: 24,
+                        ),
+                      ),
+                      child: const Text(
+                        'Kembali ke Halaman Kelas',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ],
                 ),
               ),
 
-              // Gambar sertifikat
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Image.asset(
@@ -76,7 +105,6 @@ class SertifikatScreen extends StatelessWidget {
                 ),
               ),
 
-              // Bagikan pencapaianmu
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 24),
@@ -88,7 +116,7 @@ class SertifikatScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -114,7 +142,7 @@ class SertifikatScreen extends StatelessWidget {
 
   Widget _buildSocialIcon(String assetPath) {
     return CircleAvatar(
-      backgroundColor: Color(0xFF7FA1C3),
+      backgroundColor: const Color(0xFF7FA1C3),
       radius: 24,
       child: Image.asset(assetPath, height: 50, width: 50),
     );

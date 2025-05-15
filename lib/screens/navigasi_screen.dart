@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mediquick/screens/apotek/apotek_screen.dart';
 import 'package:mediquick/screens/kelas/kelas_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../widget/bottom_navbar.dart';
 import 'dashboard/dashboard_screen.dart';
 import 'edukasi/edukasi_screen.dart';
@@ -18,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
     DashboardScreen(key: ValueKey(0)),
     EducationScreen(key: ValueKey(1)),
     KelasScreen(key: ValueKey(2)),
-    Center(key: ValueKey(3), child: Text("Toko Page")),
+    ApotekScreen(key: ValueKey(3)),
   ];
 
   void _onItemTapped(int index) {
@@ -47,8 +49,16 @@ class _MainScreenState extends State<MainScreen> {
         width: 80,
         height: 80,
         child: FloatingActionButton(
-          onPressed: () {
-            // aksi ketika FAB ditekan
+          onPressed: () async {
+            const emergencyNumber =
+                'tel:081268829932'; // ganti dengan nomor Anda
+            if (await canLaunchUrl(Uri.parse(emergencyNumber))) {
+              await launchUrl(Uri.parse(emergencyNumber));
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Tidak bisa melakukan panggilan')),
+              );
+            }
           },
           backgroundColor: const Color(0xFF6482AD),
           elevation: 6,
@@ -60,6 +70,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
