@@ -50,13 +50,18 @@ class _MainScreenState extends State<MainScreen> {
         height: 80,
         child: FloatingActionButton(
           onPressed: () async {
-            const emergencyNumber =
-                'tel:081268829932'; // ganti dengan nomor Anda
-            if (await canLaunchUrl(Uri.parse(emergencyNumber))) {
-              await launchUrl(Uri.parse(emergencyNumber));
+            final Uri emergencyUri = Uri(
+              scheme: 'tel',
+              path: '081234567890', // Ganti dengan nomor Anda
+            );
+            if (await canLaunchUrl(emergencyUri)) {
+              await launchUrl(
+                emergencyUri,
+                mode: LaunchMode.externalApplication,
+              );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Tidak bisa melakukan panggilan')),
+                const SnackBar(content: Text('Tidak bisa melakukan panggilan')),
               );
             }
           },
@@ -70,7 +75,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

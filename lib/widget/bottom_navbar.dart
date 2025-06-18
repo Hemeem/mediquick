@@ -41,7 +41,7 @@ class BottomNavBar extends StatelessWidget {
               _buildNavItem(
                 index: 3,
                 imagePath: 'assets/icons/toko.png',
-                label: 'Toko',
+                label: 'Apotek',
               ),
             ],
           ),
