@@ -28,7 +28,7 @@ class PharmacyCard extends StatelessWidget {
                   title: title,
                   price: price,
                   pharmacyName: pharmacyName,
-                  location: 'Batu Aji, Batam', // Ganti jika lokasi dinamis
+                  location: 'Batu Aji, Batam',
                 ),
           ),
         );
