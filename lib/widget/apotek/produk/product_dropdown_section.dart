@@ -23,7 +23,10 @@ class ProductDropdownSection extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          title: const Text('Pilih Varian & Ukuran'),
+          title: const Text(
+            'Pilih Varian & Ukuran',
+            style: TextStyle(fontSize: 20),
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

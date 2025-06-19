@@ -36,7 +36,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF5EDED),
       bottomNavigationBar: ProductBottomBar(
         isCheckoutEnabled: selectedVariant != null && selectedSize != null,
         onCheckout: () {

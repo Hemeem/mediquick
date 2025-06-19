@@ -44,7 +44,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final int totalPembayaran = subtotalProduk + biayaPengiriman + biayaLayanan;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFEDF1F2),
+      backgroundColor: const Color(0xFFF5EDED),
       appBar: AppBar(
         leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.transparent,
@@ -151,7 +151,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             builder: (context) => const AddressScreen(),
                           ),
                         );
-                        if (result != null && result is Map<String, String>) {
+                        if (result != null && mounted) {
                           setState(() {
                             selectedAddress = result;
                           });
